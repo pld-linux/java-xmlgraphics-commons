@@ -11,7 +11,6 @@ Source0:	%{name}-%{version}-svn.tar.bz2
 URL:		http://xmlgraphics.apache.org/commons/
 BuildRequires:	ant >= 1.5
 BuildRequires:	jpackage-utils
-#BuildRequires:	junit
 BuildRequires:	rpmbuild(macros) >= 1.300
 # disable internal-codecs in build.properities for compatibility with other jre's
 Requires:	java-sun-jre
@@ -33,8 +32,6 @@ and much more.
 %setup -q -n %{name}
 
 %build
-#required_jars='junit'
-#export CLASSPATH="$CLASSPATH:`/usr/bin/build-classpath $required_jars`"
 export JAVAC=%{javac}
 export JAVA=%{java}
 
@@ -44,8 +41,9 @@ export JAVA=%{java}
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 
-install lib/commons-io-1.1.jar $RPM_BUILD_ROOT%{_javadir}
-ln -s       commons-io-1.1.jar $RPM_BUILD_ROOT%{_javadir}/commons-io.jar
+install build/*.jar		$RPM_BUILD_ROOT%{_javadir}
+install lib/commons-io-1.1.jar	$RPM_BUILD_ROOT%{_javadir}
+ln -s       commons-io-1.1.jar	$RPM_BUILD_ROOT%{_javadir}/commons-io.jar
 
 %clean
 rm -rf $RPM_BUILD_ROOT
