@@ -41,7 +41,7 @@ pliki PDF oraz PostScript i wiele wiêcej.
 export JAVAC=%{javac}
 export JAVA=%{java}
 
-%{ant}
+%ant
 
 %install
 rm -rf $RPM_BUILD_ROOT
