@@ -1,5 +1,5 @@
 Summary:	Apache XML Graphics Commons
-Summary(pl.UTF-8):   Apache XML Graphics Commons - wspólne komponenty graficzne
+Summary(pl.UTF-8):	Apache XML Graphics Commons - wspólne komponenty graficzne
 Name:		xmlgraphics-commons
 Version:	1.0
 Release:	1
