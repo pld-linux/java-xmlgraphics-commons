@@ -1,5 +1,5 @@
 Summary:	Apache XML Graphics Commons
-Summary(pl):	Apache XML Graphics Commons - wspólne komponenty graficzne
+Summary(pl.UTF-8):   Apache XML Graphics Commons - wspÃ³lne komponenty graficzne
 Name:		xmlgraphics-commons
 Version:	1.0
 Release:	1
@@ -26,13 +26,13 @@ and XSL-FO. You will find components such as a PDF library, an RTF
 library, Graphics2D implementations that let you generate PDF &
 PostScript files, and much more.
 
-%description -l pl
-Apache XML Graphics Commons to biblioteka sk³adaj±ca siê z kilku
-wspólnych komponentów u¿ywanych przez Apache Batik i Apache POP. Wiele
-z tych komponentów mo¿e byæ ³atwo wykorzystanych poza dziedzin± SVG i
-XSL-FO. Mo¿na tu znale¼æ komponenty takie jak biblioteka PDF,
-biblioteka RTF czy implementacje Graphics2D pozwalaj±ce generowaæ
-pliki PDF oraz PostScript i wiele wiêcej.
+%description -l pl.UTF-8
+Apache XML Graphics Commons to biblioteka skÅ‚adajÄ…ca siÄ™ z kilku
+wspÃ³lnych komponentÃ³w uÅ¼ywanych przez Apache Batik i Apache POP. Wiele
+z tych komponentÃ³w moÅ¼e byÄ‡ Å‚atwo wykorzystanych poza dziedzinÄ… SVG i
+XSL-FO. MoÅ¼na tu znaleÅºÄ‡ komponenty takie jak biblioteka PDF,
+biblioteka RTF czy implementacje Graphics2D pozwalajÄ…ce generowaÄ‡
+pliki PDF oraz PostScript i wiele wiÄ™cej.
 
 %prep
 %setup -q -n %{name}
