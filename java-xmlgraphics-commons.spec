@@ -1,3 +1,6 @@
+# TODO:
+# - update to 1.3.1 from: http://www.apache.net.pl/xmlgraphics/commons/source/
+#
 Summary:	Apache XML Graphics Commons
 Summary(pl.UTF-8):	Apache XML Graphics Commons - wspólne komponenty graficzne
 Name:		xmlgraphics-commons
