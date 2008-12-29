@@ -10,12 +10,12 @@ Source0:	%{name}-%{version}-svn.tar.bz2
 # Source0-md5:	c9b1e2a23cb164a4255ecff1941dc0aa
 URL:		http://xmlgraphics.apache.org/commons/
 BuildRequires:	ant >= 1.5
+BuildRequires:	java-commons-io
 BuildRequires:	jpackage-utils
 BuildRequires:	rpmbuild(macros) >= 1.300
-BuildRequires:	java-commons-io
 # disable internal-codecs in build.properities for compatibility with other jre's
-Requires:	java-sun-jre
 BuildRequires:	java-commons-io
+Requires:	java-sun-jre
 BuildArch:	noarch
 ExclusiveArch:	i586 i686 pentium3 pentium4 athlon %{x8664} noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
