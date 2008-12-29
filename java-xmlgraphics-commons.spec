@@ -1,24 +1,25 @@
-# TODO:
-# - update to 1.3.1 from: http://www.apache.net.pl/xmlgraphics/commons/source/
 #
 Summary:	Apache XML Graphics Commons
 Summary(pl.UTF-8):	Apache XML Graphics Commons - wspólne komponenty graficzne
 Name:		xmlgraphics-commons
-Version:	1.0
+Version:	1.3.1
 Release:	1
 License:	Apache v2.0
 Group:		Libraries
 # http://svn.apache.org/repos/asf/xmlgraphics/commons/branches/commons-1_0/
-Source0:	%{name}-%{version}-svn.tar.bz2
-# Source0-md5:	c9b1e2a23cb164a4255ecff1941dc0aa
+Source0:	http://www.apache.net.pl/xmlgraphics/commons/source/%{name}-%{version}-src.tar.gz
+# Source0-md5:	4dcac6600df8282685be6972bf9b4de4
 URL:		http://xmlgraphics.apache.org/commons/
-BuildRequires:	ant >= 1.5
+BuildRequires:	ant >= 1.6.5
 BuildRequires:	java-commons-io
+BuildRequires:	java-commons-logging
 BuildRequires:	jpackage-utils
+BuildRequires:	junit >= 3.8.1
 BuildRequires:	rpmbuild(macros) >= 1.300
 # disable internal-codecs in build.properities for compatibility with other jre's
-BuildRequires:	java-commons-io
-Requires:	java-sun-jre
+Requires:	java-commons-io
+Requires:	java-commons-logging
+Requires:	java-sun-jre >= 1.4
 BuildArch:	noarch
 ExclusiveArch:	i586 i686 pentium3 pentium4 athlon %{x8664} noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,10 +41,11 @@ biblioteka RTF czy implementacje Graphics2D pozwalające generować
 pliki PDF oraz PostScript i wiele więcej.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 
 rm lib/*.jar
 ln -s $(find-jar commons-io) lib
+ln -s $(find-jar commons-logging) lib
 
 %build
 export JAVAC=%{javac}
@@ -55,7 +57,7 @@ export JAVA=%{java}
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 
-install build/xmlgraphics-commons.jar $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
+install build/xmlgraphics-commons-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
 ln -s %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}.jar
 
 %clean
@@ -63,5 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README lib/README* examples
-%{_javadir}/*.jar
+%doc KEYS README lib/README.txt examples
+%{_javadir}/%{name}.jar
+%{_javadir}/%{name}-%{version}.jar
