@@ -12,8 +12,10 @@ URL:		http://xmlgraphics.apache.org/commons/
 BuildRequires:	ant >= 1.5
 BuildRequires:	jpackage-utils
 BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	java-commons-io
 # disable internal-codecs in build.properities for compatibility with other jre's
 Requires:	java-sun-jre
+BuildRequires:	java-commons-io
 BuildArch:	noarch
 ExclusiveArch:	i586 i686 pentium3 pentium4 athlon %{x8664} noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -37,6 +39,9 @@ pliki PDF oraz PostScript i wiele więcej.
 %prep
 %setup -q -n %{name}
 
+rm lib/*.jar
+ln -s $(find-jar commons-io) lib
+
 %build
 export JAVAC=%{javac}
 export JAVA=%{java}
@@ -47,9 +52,8 @@ export JAVA=%{java}
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 
-install build/*.jar		$RPM_BUILD_ROOT%{_javadir}
-install lib/commons-io-1.1.jar	$RPM_BUILD_ROOT%{_javadir}
-ln -s       commons-io-1.1.jar	$RPM_BUILD_ROOT%{_javadir}/commons-io.jar
+install build/xmlgraphics-commons.jar $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
+ln -s %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}.jar
 
 %clean
 rm -rf $RPM_BUILD_ROOT
