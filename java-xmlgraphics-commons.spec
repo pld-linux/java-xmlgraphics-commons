@@ -1,10 +1,4 @@
 
-%if "%{pld_release}" == "ti"
-%bcond_without	java_sun	# build with gcj
-%else
-%bcond_with	java_sun	# build with java-sun
-%endif
-
 %include	/usr/lib/rpm/macros.java
 
 %define		srcname	xmlgraphics-commons
@@ -23,8 +17,7 @@ BuildRequires:	ant >= 1.6.5
 BuildRequires:	java-commons-io
 BuildRequires:	java-commons-logging
 BuildRequires:	jpackage-utils
-%{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
-%{?with_java_sun:BuildRequires:	java-sun}
+BuildRequires:	java-sun
 BuildRequires:	java-junit >= 3.8.1
 BuildRequires:	rpmbuild(macros) >= 1.300
 # disable internal-codecs in build.properities for compatibility with other jre's
