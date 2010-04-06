@@ -10,15 +10,16 @@ Release:	1
 License:	Apache v2.0
 Group:		Libraries/Java
 # http://svn.apache.org/repos/asf/xmlgraphics/commons/branches/commons-1_0/
-Source0:	http://www.apache.net.pl/xmlgraphics/commons/source/xmlgraphics-commons-1.3.1-src.tar.gz
+Source0:	http://www.apache.net.pl/xmlgraphics/commons/source/xmlgraphics-commons-%{version}-src.tar.gz
 # Source0-md5:	4dcac6600df8282685be6972bf9b4de4
 URL:		http://xmlgraphics.apache.org/commons/
 BuildRequires:	ant >= 1.6.5
 BuildRequires:	java-commons-io
 BuildRequires:	java-commons-logging
-BuildRequires:	jpackage-utils
-BuildRequires:	java-sun
 BuildRequires:	java-junit >= 3.8.1
+BuildRequires:	java-sun
+BuildRequires:	jpackage-utils
+BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 # disable internal-codecs in build.properities for compatibility with other jre's
 Requires:	java-commons-io
