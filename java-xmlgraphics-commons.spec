@@ -17,14 +17,14 @@ BuildRequires:	ant >= 1.6.5
 BuildRequires:	java-commons-io
 BuildRequires:	java-commons-logging
 BuildRequires:	java-junit >= 3.8.1
-BuildRequires:	java-sun
+BuildRequires:	jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 # disable internal-codecs in build.properities for compatibility with other jre's
 Requires:	java-commons-io
 Requires:	java-commons-logging
-Requires:	java-sun-jre >= 1.4
+Requires:	jre >= 1.4
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
