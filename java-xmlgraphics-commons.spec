@@ -1,3 +1,9 @@
+# TODO:
+# - fix test (it fails on icedtea6). If I understand
+#   http://icedtea.classpath.org/bugzilla/show_bug.cgi?id=192 and junit output
+#   correctly, this bug is fixed, but test has not been updated. That is why
+#   tests fail.
+%bcond_with	tests	# Enable tests, see TODO
 
 %include	/usr/lib/rpm/macros.java
 
@@ -6,7 +12,7 @@ Summary:	Apache XML Graphics Commons
 Summary(pl.UTF-8):	Apache XML Graphics Commons - wspólne komponenty graficzne
 Name:		java-xmlgraphics-commons
 Version:	1.3.1
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Libraries/Java
 # http://svn.apache.org/repos/asf/xmlgraphics/commons/branches/commons-1_0/
@@ -14,9 +20,10 @@ Source0:	http://www.apache.net.pl/xmlgraphics/commons/source/xmlgraphics-commons
 # Source0-md5:	4dcac6600df8282685be6972bf9b4de4
 URL:		http://xmlgraphics.apache.org/commons/
 BuildRequires:	ant >= 1.6.5
+%{?with_tests:BuildRequires:	ant-junit}
 BuildRequires:	java-commons-io
 BuildRequires:	java-commons-logging
-BuildRequires:	java-junit >= 3.8.1
+%{?with_tests:BuildRequires:	java-junit >= 3.8.1}
 BuildRequires:	jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
@@ -53,7 +60,7 @@ rm lib/*.jar
 required_jars="commons-io commons-logging"
 export JAVA_HOME=%{java_home}
 CLASSPATH=$(build-classpath $required_jars)
-%ant -Dbuild.sysclasspath=first
+%ant -Dbuild.sysclasspath=first -Djunit.present=0 package %{?with_tests:junit}
 
 %install
 rm -rf $RPM_BUILD_ROOT
