@@ -52,9 +52,6 @@ ln -s $(find-jar commons-io) lib
 ln -s $(find-jar commons-logging) lib
 
 %build
-export JAVAC=%{javac}
-export JAVA=%{java}
-
 %ant
 
 %install
