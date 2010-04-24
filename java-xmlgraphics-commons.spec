@@ -48,11 +48,12 @@ pliki PDF oraz PostScript i wiele więcej.
 %setup -q -n %{srcname}-%{version}
 
 rm lib/*.jar
-ln -s $(find-jar commons-io) lib
-ln -s $(find-jar commons-logging) lib
 
 %build
-%ant
+required_jars="commons-io commons-logging"
+export JAVA_HOME=%{java_home}
+CLASSPATH=$(build-classpath $required_jars)
+%ant -Dbuild.sysclasspath=first
 
 %install
 rm -rf $RPM_BUILD_ROOT
