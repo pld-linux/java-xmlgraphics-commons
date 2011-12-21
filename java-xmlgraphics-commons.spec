@@ -11,13 +11,13 @@
 Summary:	Apache XML Graphics Commons
 Summary(pl.UTF-8):	Apache XML Graphics Commons - wspólne komponenty graficzne
 Name:		java-xmlgraphics-commons
-Version:	1.3.1
-Release:	2
+Version:	1.4
+Release:	1
 License:	Apache v2.0
 Group:		Libraries/Java
 # http://svn.apache.org/repos/asf/xmlgraphics/commons/branches/commons-1_0/
 Source0:	http://www.apache.net.pl/xmlgraphics/commons/source/xmlgraphics-commons-%{version}-src.tar.gz
-# Source0-md5:	4dcac6600df8282685be6972bf9b4de4
+# Source0-md5:	d2b56a1671d2ca63480e38acd9629ea7
 URL:		http://xmlgraphics.apache.org/commons/
 BuildRequires:	ant >= 1.6.5
 %{?with_tests:BuildRequires:	ant-junit}
