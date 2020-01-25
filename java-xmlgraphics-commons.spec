@@ -5,7 +5,6 @@
 #   tests fail.
 %bcond_with	tests	# Enable tests, see TODO
 
-%include	/usr/lib/rpm/macros.java
 
 %define		srcname	xmlgraphics-commons
 Summary:	Apache XML Graphics Commons
